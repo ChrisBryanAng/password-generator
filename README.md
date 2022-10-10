@@ -2,6 +2,6 @@
 
 Made with Next Js --Tailwind
 
-## Deploy on Vercel
+## Deployed on Vercel
 
 Link ---TBD
