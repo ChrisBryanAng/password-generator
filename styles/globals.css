@@ -1,26 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+	.customSlider {
+		max-width: 100%;
+	}
+	.customSlider-track {
+		top: 5.5px;
+		/* thickness of the track */
+		height: 8px;
+		/* default color of your track */
+		background: #18171f;
+	}
 
-* {
-  box-sizing: border-box;
-}
+	.customSlider-track.customSlider-track-0 {
+		/* color of the track before the thumb */
+		background: #a4ffaf;
+	}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+	.customSlider-thumb {
+		cursor: pointer;
+		/*color for the thumb */
+		background: #e6e5ea;
+		/* shape of the thumb: circle */
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		/* remove default outline when selected */
+		outline: none;
+	}
+
+	.customSlider-thumb:hover {
+		background: #18171f;
+		border: 1px solid #a4ffaf;
+	}
+
+	.checked {
+		background: #a4ffaf;
+		position: relative;
+		border: none;
+	}
+
+	.checked::before {
+		content: '\2714';
+		font-size: 0.9em;
+		color: #18171f;
+		position: absolute;
+		right: 3px;
+		top: -2px;
+	}
 }
