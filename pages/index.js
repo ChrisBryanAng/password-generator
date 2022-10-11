@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { FaRegCopy, FaArrowRight } from 'react-icons/fa';
 import ReactSlider from 'react-slider';
 import Checkbox from '../components/Checkbox';
+import StrengthIndicator from '../components/StrengthIndicator';
 
 export default function Home() {
 	const [characterLength, setCharacterLength] = useState(10);
@@ -81,12 +82,13 @@ export default function Home() {
 			</Head>
 
 			<main className='flex flex-col gap-4 justify-center items-center h-full w-full bg-veryDarkGrey text-almostWhite text-[16px]'>
-				<p className='text-grey w-[540px] text-center text-[18px]'>
+				<p className='text-grey w-[343px] md:w-[540px] text-center text-[18px]'>
 					Password Generator
 				</p>
-				<div className='flex items-center justify-between bg-darkGrey px-6 py-4 w-[540px]'>
+				<div className='flex items-center justify-between bg-darkGrey px-6 py-4 w-[343px] md:w-[540px]'>
 					<input
 						type='text'
+						readOnly
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						placeholder='P4$5W0rD!'
@@ -98,7 +100,7 @@ export default function Home() {
 						onClick={copyToClipboard}
 					/>
 				</div>
-				<div className='flex flex-col justify-center gap-5 bg-darkGrey p-6 w-[540px]'>
+				<div className='flex flex-col justify-center gap-5 bg-darkGrey p-6 w-[343px] md:w-[540px]'>
 					<div className='flex items-center justify-between'>
 						<p>Character Length</p>
 						<p className='text-neonGreen text-[24px]'>{characterLength}</p>
@@ -139,11 +141,7 @@ export default function Home() {
 					<div className='flex items-center justify-between px-8 py-4 h-14 w-full bg-veryDarkGrey'>
 						<p className='text-grey'>STRENGTH</p>
 						<div className='flex items-center gap-2'>
-							<p className='text-[18px] mr-1'>MEDIUM</p>
-							<div className='bg-yellow h-6 w-2' />
-							<div className='bg-yellow h-6 w-2' />
-							<div className='bg-yellow h-6 w-2' />
-							<div className='border-2 border-almostWhite h-6 w-2' />
+							<StrengthIndicator password={password} />
 						</div>
 					</div>
 					{characterLength < 1 && (
